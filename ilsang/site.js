@@ -35,7 +35,8 @@
     'c6eb7774c7778c01f4b0dacb82eb3471': 'char_frieren.jpg',
     '40db731af863ab26ccd1da1a3e82e83a': 'char_yellowtee.jpg',
     '9bb4e59d80a4c2ddc0638b1e98ee2740': 'char_silver.jpg',
-    '47042842c43c3d2dc960d84af47671bf': 'char_yellowtee2.jpg'
+    '47042842c43c3d2dc960d84af47671bf': 'char_yellowtee2.jpg',
+    '17f50079662b10764806a6240f4f0f3a': 'diary_vsrang.jpg'
   };
   const EGGS = [
       { k: 'heart10', title: '하트 브레이커', desc: '큰 하트를 10번 눌러 깨뜨렸다', hint: '가운데 큰 하트를 여러 번 콕콕' },
@@ -59,7 +60,8 @@
     { id: '341e9fd55b8507251a986c0ff7d26fcf', file: 'karaoke.png', title: '노래방 간 일상', kind: 'oc', alt: '노래방 조명 아래 마이크를 든 오너캐 일상과 신난 고양이, 우파루파' },
     { id: '1adabaeca0d2f409ce1a128c68ebae9e', file: 'my_room.png', title: '방바닥 일상', kind: 'oc', alt: '방바닥에 엎드린 오너캐 일상과 혀를 내민 삼색 고양이' },
     { id: '40db731af863ab26ccd1da1a3e82e83a', file: 'ilsang_jump.png', title: '뛰어오르는 일상', kind: 'oc', alt: '노란 티셔츠를 입은 오너캐 일상이 주먹을 쥐고 뛰어오르는 그림' },
-    { id: '47042842c43c3d2dc960d84af47671bf', file: 'ilsang_bleh.png', title: '메롱 일상', kind: 'oc', alt: '노란 티셔츠를 입은 오너캐 일상이 혀를 내밀고 서 있는 그림' }
+    { id: '47042842c43c3d2dc960d84af47671bf', file: 'ilsang_bleh.png', title: '메롱 일상', kind: 'oc', alt: '노란 티셔츠를 입은 오너캐 일상이 혀를 내밀고 서 있는 그림' },
+    { id: '17f50079662b10764806a6240f4f0f3a', file: 'ilsang_vs_rang.png', title: '일상 VS 랑', kind: 'oc', alt: '노란 티를 입은 일상의 발차기를 은발의 랑이 막아내는 대결 장면' }
   ];
   const A = [
     { id: '20d67b215d5faa1713fe60303d807410', file: 'pink_cat.png', title: '분홍 고양이', kind: 'char', alt: '혀를 내밀고 손을 흔드는 분홍 고양이 소녀' },
