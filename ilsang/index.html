@@ -58,7 +58,8 @@ a{color:#FFC4E1}a:hover{color:#FFFFFF}
 }
 @keyframes flipin{from{opacity:0;transform:perspective(900px) rotateY(80deg) rotateZ(-8deg) translateY(90px) scale(.8)}}
 .lace{height:18px;background:radial-gradient(circle at 9px 0,#FFE6F2 8px,transparent 9px) 0 0/18px 18px repeat-x,radial-gradient(circle at 9px 0,#FF4FB0 3px,transparent 4px) 0 7px/18px 18px repeat-x;filter:drop-shadow(0 0 6px #FF4FB0)}
-.cube-wrap{width:210px;height:210px;perspective:900px}
+.cube-wrap{width:210px;height:210px;perspective:1100px;transform-style:preserve-3d}
+.face{backface-visibility:visible}
 .cube{position:relative;width:100%;height:100%;transform-style:preserve-3d;animation:cube 12s linear infinite}
 .cube.rev{animation-duration:17s;animation-direction:reverse}
 .cube:hover{animation-play-state:paused}
@@ -252,27 +253,27 @@ a{color:#FFC4E1}a:hover{color:#FFFFFF}
 <!-- 3D ROOM -->
 <section id="room" style="position: relative; z-index: 1; max-width: 1200px; margin: 0 auto; padding: 72px 24px 120px">
 <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 56px"><canvas id="cv-g3" aria-hidden="true" style="width: 92px; height: 92px"></canvas><h2 class="chrome" style="margin: 0; font-family: 'Bagel Fat One', sans-serif; font-weight: 400; font-size: clamp(48px, 7vw, 88px); line-height: 1">3D ROOM</h2></div>
-<div style="display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 90px 110px">
-<button class="nb cube-wrap" data-act="clickCube" aria-label="그림 큐브 터뜨리기"><span class="cube" style="display: block">
+<div style="display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 20px 40px">
+<button class="nb" data-act="clickCube" style="display: block; overflow: visible; padding: 70px" aria-label="그림 큐브 터뜨리기"><span class="cube-wrap" style="display: block"><span class="cube" style="display: block">
 <span class="face" style="transform: rotateY(0deg) translateZ(105px)"><img src="images/char_kimono.jpg" alt=""></span>
 <span class="face" style="transform: rotateY(90deg) translateZ(105px)"><img src="images/char_gwen.jpg" alt=""></span>
 <span class="face" style="transform: rotateY(180deg) translateZ(105px)"><img src="images/char_pinkcat.jpg" alt=""></span>
 <span class="face" style="transform: rotateY(270deg) translateZ(105px)"><img src="images/char_fire.jpg" alt=""></span>
 <span class="face" style="transform: rotateX(90deg) translateZ(105px)"><img src="images/char_crown.jpg" alt=""></span>
 <span class="face" style="transform: rotateX(-90deg) translateZ(105px)"><img src="images/diary_catroom.jpg" alt=""></span>
-</span></button>
+</span></span></button>
 <div class="bob" style="text-align: center; max-width: 260px">
 <p class="neon" style="margin: 0; font-family: 'DotGothic16', monospace; font-size: 22px; color: #FF8CC6">♡ くるくる ♡</p>
 <p style="margin: 8px 0 0; font-size: 16px; line-height: 1.6">그림 큐브예요. 마우스 올리면 멈추고, 누르면… 눌러봐요.</p>
 </div>
-<button class="nb cube-wrap" data-act="clickCube" aria-label="오너캐 큐브 터뜨리기"><span class="cube rev" style="display: block">
+<button class="nb" data-act="clickCube" style="display: block; overflow: visible; padding: 70px" aria-label="오너캐 큐브 터뜨리기"><span class="cube-wrap" style="display: block"><span class="cube rev" style="display: block">
 <span class="face" style="transform: rotateY(0deg) translateZ(105px)"><img src="images/mascot.jpg" alt=""></span>
 <span class="face" style="transform: rotateY(90deg) translateZ(105px)"><img src="images/sk_cheer.jpg" alt=""></span>
 <span class="face" style="transform: rotateY(180deg) translateZ(105px)"><img src="images/sk_spin.jpg" alt=""></span>
 <span class="face" style="transform: rotateY(270deg) translateZ(105px)"><img src="images/sk_catwand.jpg" alt=""></span>
 <span class="face" style="transform: rotateX(90deg) translateZ(105px)"><img src="images/diary_ramen.jpg" alt=""></span>
 <span class="face" style="transform: rotateX(-90deg) translateZ(105px)"><img src="images/diary_karaoke.jpg" alt=""></span>
-</span></button>
+</span></span></button>
 </div>
 </section>
 
