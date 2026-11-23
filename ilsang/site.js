@@ -31,7 +31,11 @@
     '963d47bd6537c11f53d57051e834f33e': 'sk_spin.jpg',
     '22aca2323cce00f3ff192aefba5557fa': 'sk_eevee.jpg',
     'c472edba3bb0a246b42c80cf90838d28': 'sk_ball.jpg',
-    '4c80467e51e53a0554f8132711f279d2': 'sk_bluehair.jpg'
+    '4c80467e51e53a0554f8132711f279d2': 'sk_bluehair.jpg',
+    'c6eb7774c7778c01f4b0dacb82eb3471': 'char_frieren.jpg',
+    '40db731af863ab26ccd1da1a3e82e83a': 'char_yellowtee.jpg',
+    '9bb4e59d80a4c2ddc0638b1e98ee2740': 'char_silver.jpg',
+    '47042842c43c3d2dc960d84af47671bf': 'char_yellowtee2.jpg'
   };
   const EGGS = [
       { k: 'heart10', title: '하트 브레이커', desc: '큰 하트를 10번 눌러 깨뜨렸다', hint: '가운데 큰 하트를 여러 번 콕콕' },
@@ -64,6 +68,10 @@
     { id: '4ebb11752ec761e9ef1f4e4bb6bcb960', file: 'yanineko.png', title: '야니네코', kind: 'fan', alt: '야니네코: 노란 눈의 민트색 머리 고양이 소녀를 위에서 내려다본 구도' },
     { id: '1490170bb2506d4a801f458e9dbdc236', file: 'black_cat.png', title: '검은 고양이', kind: 'char', alt: '브이 포즈를 한 검은 고양이 소녀' },
     { id: '37706d61e32bd9a4b29ffc096a354852', file: 'furina.png', title: '원신 · 푸리나', kind: 'fan', alt: '푸리나 SD 그림' },
+    { id: 'c6eb7774c7778c01f4b0dacb82eb3471', file: 'frieren.png', title: '장송의 프리렌 · 프리렌', kind: 'fan', alt: '별빛 밤하늘 아래 지팡이를 든 프리렌 SD 그림' },
+    { id: '40db731af863ab26ccd1da1a3e82e83a', file: 'yellow_tee.png', title: '노란 티 캐릭터', kind: 'char', alt: '노란 티셔츠를 입은 갈색 머리 캐릭터가 주먹을 쥐고 뛰어오르는 그림' },
+    { id: '47042842c43c3d2dc960d84af47671bf', file: 'yellow_tee_02.png', title: '노란 티 캐릭터 02', kind: 'char', alt: '노란 티셔츠를 입은 갈색 머리 캐릭터가 혀를 내밀고 서 있는 그림' },
+    { id: '9bb4e59d80a4c2ddc0638b1e98ee2740', file: 'silver_jump.png', title: '은발 캐릭터', kind: 'char', alt: '푸른 빛줄기 사이로 은발 캐릭터가 뛰어오르는 그림' },
     { id: '3f48109e1502bfbb63bc36ea59ada239', file: 'gwen.png', title: '스파이더버스 · 그웬', kind: 'fan', alt: '거꾸로 매달린 그웬, 하프톤 배경' },
     { id: '03e88b240944bb1b43b5b422a280c9c1', file: 'uta.png', title: '원피스 FILM RED · 우타', kind: 'fan', alt: '왕관을 쓴 우타' },
     { id: '7ab862ac32bdfa2b9635f314e884ee7e', file: 'spider_01.png', title: '스파이더맨 수트 01', kind: 'fan', alt: '철창 앞에서 포즈를 취한 스파이더맨 수트 소녀' },
