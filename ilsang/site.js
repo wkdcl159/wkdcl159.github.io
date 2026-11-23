@@ -57,7 +57,9 @@
   const D = [
     { id: '97adaf2b7c4a232c1800895d1e2914cf', file: 'ramen.png', title: '라멘 먹는 일상', kind: 'oc', alt: '라멘집에서 면을 후루룩 먹는 오너캐 일상과 옆의 고양이, 우파루파' },
     { id: '341e9fd55b8507251a986c0ff7d26fcf', file: 'karaoke.png', title: '노래방 간 일상', kind: 'oc', alt: '노래방 조명 아래 마이크를 든 오너캐 일상과 신난 고양이, 우파루파' },
-    { id: '1adabaeca0d2f409ce1a128c68ebae9e', file: 'my_room.png', title: '방바닥 일상', kind: 'oc', alt: '방바닥에 엎드린 오너캐 일상과 혀를 내민 삼색 고양이' }
+    { id: '1adabaeca0d2f409ce1a128c68ebae9e', file: 'my_room.png', title: '방바닥 일상', kind: 'oc', alt: '방바닥에 엎드린 오너캐 일상과 혀를 내민 삼색 고양이' },
+    { id: '40db731af863ab26ccd1da1a3e82e83a', file: 'ilsang_jump.png', title: '뛰어오르는 일상', kind: 'oc', alt: '노란 티셔츠를 입은 오너캐 일상이 주먹을 쥐고 뛰어오르는 그림' },
+    { id: '47042842c43c3d2dc960d84af47671bf', file: 'ilsang_bleh.png', title: '메롱 일상', kind: 'oc', alt: '노란 티셔츠를 입은 오너캐 일상이 혀를 내밀고 서 있는 그림' }
   ];
   const A = [
     { id: '20d67b215d5faa1713fe60303d807410', file: 'pink_cat.png', title: '분홍 고양이', kind: 'char', alt: '혀를 내밀고 손을 흔드는 분홍 고양이 소녀' },
@@ -69,9 +71,7 @@
     { id: '1490170bb2506d4a801f458e9dbdc236', file: 'black_cat.png', title: '검은 고양이', kind: 'char', alt: '브이 포즈를 한 검은 고양이 소녀' },
     { id: '37706d61e32bd9a4b29ffc096a354852', file: 'furina.png', title: '원신 · 푸리나', kind: 'fan', alt: '푸리나 SD 그림' },
     { id: 'c6eb7774c7778c01f4b0dacb82eb3471', file: 'frieren.png', title: '장송의 프리렌 · 프리렌', kind: 'fan', alt: '별빛 밤하늘 아래 지팡이를 든 프리렌 SD 그림' },
-    { id: '40db731af863ab26ccd1da1a3e82e83a', file: 'yellow_tee.png', title: '노란 티 캐릭터', kind: 'char', alt: '노란 티셔츠를 입은 갈색 머리 캐릭터가 주먹을 쥐고 뛰어오르는 그림' },
-    { id: '47042842c43c3d2dc960d84af47671bf', file: 'yellow_tee_02.png', title: '노란 티 캐릭터 02', kind: 'char', alt: '노란 티셔츠를 입은 갈색 머리 캐릭터가 혀를 내밀고 서 있는 그림' },
-    { id: '9bb4e59d80a4c2ddc0638b1e98ee2740', file: 'silver_jump.png', title: '은발 캐릭터', kind: 'char', alt: '푸른 빛줄기 사이로 은발 캐릭터가 뛰어오르는 그림' },
+    { id: '9bb4e59d80a4c2ddc0638b1e98ee2740', file: 'rang.png', title: '랑', kind: 'char', alt: '푸른 빛줄기 사이로 은발의 랑이 뛰어오르는 그림' },
     { id: '3f48109e1502bfbb63bc36ea59ada239', file: 'gwen.png', title: '스파이더버스 · 그웬', kind: 'fan', alt: '거꾸로 매달린 그웬, 하프톤 배경' },
     { id: '03e88b240944bb1b43b5b422a280c9c1', file: 'uta.png', title: '원피스 FILM RED · 우타', kind: 'fan', alt: '왕관을 쓴 우타' },
     { id: '7ab862ac32bdfa2b9635f314e884ee7e', file: 'spider_01.png', title: '스파이더맨 수트 01', kind: 'fan', alt: '철창 앞에서 포즈를 취한 스파이더맨 수트 소녀' },
