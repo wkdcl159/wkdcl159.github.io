@@ -181,6 +181,27 @@ footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
 .dt-imgs img{width:100%;background:var(--tile);border-radius:4px}
 @media (max-width:860px){.dt-body{grid-template-columns:1fr;padding-top:28px}.dt-info{position:static}}
 
+
+/* bubble chain */
+.bubbles{display:flex;flex-wrap:wrap;justify-content:center;align-items:flex-start;padding:20px 0 90px;position:relative}
+.bubbles .card{width:var(--s);height:var(--s);margin:var(--y) -16px 0;border-radius:50%;position:relative;z-index:1;flex:0 0 auto;transition:transform .45s cubic-bezier(.3,1.4,.5,1),z-index 0s .2s}
+.bubbles .card .ph{width:100%;height:100%;aspect-ratio:auto;border-radius:50%;overflow:hidden;background:var(--tile);border:6px solid #fff;box-shadow:0 10px 30px rgba(0,0,0,.10);animation:pop .7s cubic-bezier(.3,1.5,.5,1) both;animation-delay:calc(var(--n)*35ms)}
+.bubbles .card .ph img{width:100%;height:100%;object-fit:cover;transition:transform .6s}
+.bubbles .card .ph.fit{background:#fff}
+.bubbles .card .ph.fit img{object-fit:contain;padding:16%}
+.bubbles .card:hover,.bubbles .card:focus-visible{transform:scale(1.14);z-index:5;transition:transform .45s cubic-bezier(.3,1.4,.5,1),z-index 0s}
+.bubbles .card:hover .ph img{transform:scale(1.08)}
+.bubbles .card .yt{left:50%;top:auto;bottom:12%;transform:translateX(-50%);position:absolute}
+.bubbles .tag{position:absolute;left:50%;top:calc(100% + 10px);transform:translate(-50%,6px);white-space:nowrap;background:var(--ink);color:#fff;border-radius:99px;padding:6px 14px;font-size:13px;line-height:1.3;text-align:center;opacity:0;pointer-events:none;transition:opacity .2s,transform .25s;z-index:6}
+.bubbles .tag b{display:block;font-weight:600}
+.bubbles .tag span{font-size:11px;opacity:.7}
+.bubbles .card:hover .tag,.bubbles .card:focus-visible .tag{opacity:1;transform:translate(-50%,0)}
+@keyframes pop{from{transform:scale(.2);opacity:0}}
+@media (max-width:640px){.bubbles .card{width:calc(var(--s)*.58);height:calc(var(--s)*.58);margin:calc(var(--y)*.5) -10px 0}.bubbles .card .ph{border-width:4px}}
+@media (hover:none){.bubbles .tag{display:none}}
+.burst{position:fixed;inset:0;z-index:60;background:#fff center/cover no-repeat;transition:clip-path .6s cubic-bezier(.7,0,.2,1),opacity .35s;pointer-events:none}
+.burst.fit{background-size:contain;background-color:#fff}
+@media (prefers-reduced-motion:reduce){.bubbles .card .ph{animation:none}}
 /* motion */
 .rv{opacity:0;transform:translateY(22px)}
 .rv.in{opacity:1;transform:none;transition:opacity .8s cubic-bezier(.2,.7,.2,1),transform .8s cubic-bezier(.2,.7,.2,1);transition-delay:var(--d,0s)}
@@ -243,7 +264,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
     <div class="shead"><h2>Work <small id="wcount"></small></h2>
       <div class="tabs" id="tabs" role="group" aria-label="분야"></div></div>
     <div class="subtabs" id="subtabs" role="group" aria-label="세부 분류"></div>
-    <div class="grid" id="grid"></div>
+    <div class="bubbles" id="grid"></div>
   </div>
 </section>
 
@@ -387,9 +408,11 @@ const G={graphic:'그래픽',character:'캐릭터',lettering:'레터링 · 포�
 /* grid */
 const grid=document.getElementById('grid');
 works.forEach((w,i)=>{
-  const b=document.createElement('button');b.className='card rv';b.dataset.i=i;b.dataset.g=w.g;b.dataset.t=w.type;
-  b.innerHTML=`<div class="ph${w.fit?' fit':''}">${w.yt?'<span class="yt">영상</span>':''}<img src="${u(w.cover)}" alt="" loading="lazy"></div>
-  <h3>${esc(clean(w.t))}</h3><div class="meta"><span>${esc(w.type)}</span>${w.d?`<span class="num">${w.d}</span>`:''}</div>`;
+  const b=document.createElement('button');b.className='card';b.dataset.i=i;b.dataset.g=w.g;b.dataset.t=w.type;
+  b.style.setProperty('--s',[230,170,205,150,190,165,215,155][i%8]+'px');b.style.setProperty('--y',[0,46,10,60,22,-6,38,14][i%8]+'px');b.style.setProperty('--n',i);
+  b.setAttribute('aria-label',clean(w.t));
+  b.innerHTML=`<div class="ph${w.fit?' fit':''}"><img src="${u(w.cover)}" alt="" loading="lazy">${w.yt?'<span class="yt">영상</span>':''}</div>
+  <span class="tag"><b>${esc(clean(w.t))}</b><span>${esc(w.type)}${w.d?' · '+w.d:''}</span></span>`;
   grid.appendChild(b);
 });
 document.getElementById('fWorks').textContent=works.length;
@@ -459,7 +482,12 @@ function showSet(title,label,list,start){
   const t=imgs.children[start||0];if(t)setTimeout(()=>dt.scrollTo({top:t.offsetTop-80}),30);
 }
 document.addEventListener('click',e=>{
-  const c=e.target.closest('.card');if(c){showWork(+c.dataset.i);return}
+  const c=e.target.closest('.card');if(c){const i=+c.dataset.i;if(reduce){showWork(i);return}
+    const ph=c.querySelector('.ph'),r=ph.getBoundingClientRect(),cx=r.left+r.width/2,cy=r.top+r.height/2,w=works[i];
+    const o=document.createElement('div');o.className='burst'+(w.fit?' fit':'');o.style.backgroundImage=`url("${u(w.cover)}")`;
+    o.style.clipPath=`circle(${r.width/2}px at ${cx}px ${cy}px)`;document.body.appendChild(o);
+    requestAnimationFrame(()=>requestAnimationFrame(()=>{o.style.clipPath=`circle(${Math.hypot(innerWidth,innerHeight)}px at ${cx}px ${cy}px)`}));
+    setTimeout(()=>{showWork(i);o.style.opacity=0;setTimeout(()=>o.remove(),400)},620);return}
   const g=e.target.closest('[data-go]');if(g){showWork(+g.dataset.go);return}
   const f=e.target.closest('[data-f]');if(f){const fm=films[+f.dataset.f];showSet(fm.t,fm.k,fm.shots.concat(fm.bts),+f.dataset.k);return}
   const ce=e.target.closest('[data-c]');if(ce){const k=+ce.dataset.c;showSet('자격 확인서','생년월일·주소·등록번호 등 개인정보 가림',certs.map(c=>`img/cert/${c[2]}.jpg`),k);return}
