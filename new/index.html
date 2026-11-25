@@ -40,7 +40,7 @@ nav a{text-decoration:none;font-size:15px;color:var(--sub);transition:color .15s
 nav a:hover,nav a.on{color:var(--ink)}
 
 /* hero */
-.hero{padding:clamp(72px,12vw,150px) 0 clamp(56px,8vw,96px)}
+.hero{padding-top:clamp(72px,12vw,150px);padding-bottom:clamp(56px,8vw,96px)}
 .hero .label{margin-bottom:18px}
 .hero h1{font-size:clamp(34px,5.4vw,68px);line-height:1.18;font-weight:700;max-width:15em}
 .hero h1 em{font-style:normal;color:var(--accent)}
@@ -185,9 +185,9 @@ footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
   <div class="wrap">
     <a class="brand" href="#"><i></i>권혁주</a>
     <nav><ul>
+      <li><a href="#about">About</a></li>
       <li><a href="#work">Work</a></li>
       <li><a href="#video">Video</a></li>
-      <li><a href="#about">About</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul></nav>
   </div>
@@ -196,7 +196,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
 <main>
 <div class="hero wrap">
   <p class="label">Graphic · Character · Video Designer</p>
-  <h1>항상 <em>새로움</em>과 함께하는 디자이너가 되겠습니다.</h1>
+  <h1>항상 <em>“신기한 놈”</em>이 될<br>디자이너입니다.</h1>
   <div class="hero-meta">
     <span>권혁주 Kwon Hyuk Ju</span>
     <a href="https://www.instagram.com/khjuju_159/">Instagram</a>
@@ -210,6 +210,24 @@ footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
     <div><b>5</b><span>수상</span></div>
   </div>
 </div>
+
+<section id="about">
+  <div class="wrap">
+    <div class="shead"><h2>About</h2></div>
+    <div class="about">
+      <div>
+        <p class="intro">일러스트레이터를 중심으로 편집, 모션, 3D까지 다룹니다.</p>
+        <h3>Tool</h3>
+        <ul class="tools pre" id="tools"></ul>
+      </div>
+      <div>
+        <h3>학력</h3><ul class="list num" id="edu"></ul>
+        <h3>수상</h3><ul class="list num" id="award"></ul>
+        <h3>자격 <span class="label">· 누르면 확인서 보기 (개인정보 가림)</span></h3><ul class="list num" id="cert"></ul>
+      </div>
+    </div>
+  </div>
+</section>
 
 <section id="work">
   <div class="wrap">
@@ -228,24 +246,6 @@ footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
     <div class="vrow" id="vids"></div>
     <h3 class="vsub">YouTube Shorts</h3>
     <div class="vrow shorts" id="shorts"></div>
-  </div>
-</section>
-
-<section id="about">
-  <div class="wrap">
-    <div class="shead"><h2>About</h2></div>
-    <div class="about">
-      <div>
-        <p class="intro">일러스트레이터를 중심으로 편집, 모션, 3D까지 다룹니다.</p>
-        <h3>Tool</h3>
-        <ul class="tools pre" id="tools"></ul>
-      </div>
-      <div>
-        <h3>학력</h3><ul class="list num" id="edu"></ul>
-        <h3>수상</h3><ul class="list num" id="award"></ul>
-        <h3>자격 <span class="label">· 누르면 확인서 보기 (개인정보 가림)</span></h3><ul class="list num" id="cert"></ul>
-      </div>
-    </div>
   </div>
 </section>
 
