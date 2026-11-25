@@ -183,7 +183,8 @@ footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
 
 
 /* circle grid */
-.bubbles{--cols:6;--gap:28px;display:grid;grid-template-columns:repeat(var(--cols),1fr);gap:40px var(--gap);padding:10px 0 40px}
+.bubbles{--cols:6;--gap:28px;display:grid;grid-template-columns:repeat(var(--cols),1fr);gap:40px var(--gap);padding:10px calc((100% + var(--gap)) / (2 * var(--cols) + 1)) 40px 0}
+.bubbles .card.shift{transform:translateX(calc(50% + var(--gap) / 2))}
 @media (max-width:1000px){.bubbles{--cols:4}}
 @media (max-width:560px){.bubbles{--cols:3;--gap:14px;row-gap:28px}}
 .bubbles .card{display:flex;flex-direction:column;align-items:center;text-align:center;position:relative}
@@ -420,7 +421,7 @@ document.getElementById('fWorks').textContent=works.length;
 const tabs=document.getElementById('tabs'),sub=document.getElementById('subtabs'),wc=document.getElementById('wcount');
 let curG='*',curT='*';
 function ends(){const cols=+getComputedStyle(grid).getPropertyValue('--cols')||6;const vis=[...grid.querySelectorAll('.card:not(.hide)')];
-  vis.forEach((c,k)=>{c.classList.toggle('end',(k+1)%cols===0||k===vis.length-1);const ph=c.querySelector('.ph');c.style.setProperty('--mid',(ph.offsetHeight/2)+'px')})}
+  vis.forEach((c,k)=>{c.classList.toggle('end',(k+1)%cols===0||k===vis.length-1);c.classList.toggle('shift',Math.floor(k/cols)%2===1);const ph=c.querySelector('.ph');c.style.setProperty('--mid',(ph.offsetHeight/2)+'px')})}
 function apply(){let n=0;grid.querySelectorAll('.card').forEach(c=>{const on=(curG==='*'||c.dataset.g===curG)&&(curT==='*'||c.dataset.t===curT);c.classList.toggle('hide',!on);if(on){n++;c.classList.add('in')}});wc.textContent=n;ends()}
 addEventListener('resize',ends);
 function mk(box,label,val,cur,fn){const b=document.createElement('button');b.textContent=label;b.setAttribute('aria-pressed',val===cur);b.onclick=()=>fn(val);box.appendChild(b)}
