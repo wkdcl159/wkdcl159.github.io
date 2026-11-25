@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>권혁주 포트폴리오</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<style>
+:root{
+  /* layout idea: a quiet white gallery — generous margins, one typeface, grey image plinths, a single pink accent from the KHJ logo */
+  --bg:#ffffff;
+  --ink:#141414;
+  --sub:#707070;
+  --line:#e7e7e7;
+  --tile:#f3f3f1;
+  --accent:#ff3d7f;
+  --font:"Pretendard Variable",Pretendard,-apple-system,"Apple SD Gothic Neo","Malgun Gothic",sans-serif;
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--font);font-size:16px;line-height:1.65;letter-spacing:-.01em;-webkit-font-smoothing:antialiased;word-break:keep-all}
+img{max-width:100%;display:block}
+a{color:inherit}
+button{font:inherit;color:inherit}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+.wrap{max-width:1240px;margin:0 auto;padding:0 clamp(20px,4vw,48px)}
+h1,h2,h3{margin:0;font-weight:700;letter-spacing:-.03em;text-wrap:balance}
+.num{font-variant-numeric:tabular-nums}
+.label{font-size:13px;color:var(--sub);letter-spacing:0}
+
+/* header */
+header.top{position:sticky;top:0;z-index:20;background:rgba(255,255,255,.88);backdrop-filter:saturate(1.4) blur(12px);border-bottom:1px solid transparent;transition:border-color .2s}
+header.top.scrolled{border-color:var(--line)}
+header.top .wrap{display:flex;align-items:center;justify-content:space-between;height:64px;gap:20px}
+.brand{font-weight:700;font-size:17px;text-decoration:none;display:flex;align-items:center;gap:8px}
+.brand i{width:8px;height:8px;border-radius:50%;background:var(--accent)}
+nav ul{display:flex;gap:clamp(14px,3vw,32px);list-style:none;margin:0;padding:0}
+nav a{text-decoration:none;font-size:15px;color:var(--sub);transition:color .15s}
+nav a:hover,nav a.on{color:var(--ink)}
+
+/* hero */
+.hero{padding:clamp(72px,12vw,150px) 0 clamp(56px,8vw,96px)}
+.hero .label{margin-bottom:18px}
+.hero h1{font-size:clamp(34px,5.4vw,68px);line-height:1.18;font-weight:700;max-width:15em}
+.hero h1 em{font-style:normal;color:var(--accent)}
+.hero-meta{display:flex;flex-wrap:wrap;gap:10px 28px;margin-top:36px;font-size:15px}
+.hero-meta a{text-decoration:none;border-bottom:1px solid var(--line);padding-bottom:2px}
+.hero-meta a:hover{border-color:var(--ink)}
+.facts{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--ink);margin-top:clamp(56px,8vw,96px)}
+.facts div{padding:20px 0 0}
+.facts b{display:block;font-size:clamp(28px,3.4vw,40px);font-weight:700;line-height:1.1}
+.facts span{font-size:14px;color:var(--sub)}
+@media (max-width:640px){.facts{grid-template-columns:repeat(2,1fr);row-gap:24px}}
+
+/* section */
+section{padding:clamp(64px,9vw,120px) 0;border-top:1px solid var(--line)}
+.shead{display:flex;align-items:baseline;justify-content:space-between;gap:20px;flex-wrap:wrap;margin-bottom:36px}
+.shead h2{font-size:clamp(26px,3vw,36px)}
+.shead h2 small{font-size:14px;font-weight:500;color:var(--sub);margin-left:10px;letter-spacing:0}
+
+/* tabs */
+.tabs{display:flex;flex-wrap:wrap;gap:6px}
+.tabs button{border:1px solid var(--line);background:#fff;border-radius:99px;padding:7px 15px;font-size:14px;cursor:pointer;color:var(--sub);transition:all .15s}
+.tabs button:hover{color:var(--ink);border-color:#cfcfcf}
+.tabs button[aria-pressed="true"]{background:var(--ink);border-color:var(--ink);color:#fff}
+.subtabs{margin:-18px 0 32px}
+.subtabs button{border:0;background:none;padding:4px 0;margin-right:18px;font-size:14px;color:var(--sub);cursor:pointer;border-bottom:1px solid transparent}
+.subtabs button[aria-pressed="true"]{color:var(--ink);border-color:var(--ink)}
+
+/* grid */
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:48px 28px}
+@media (max-width:960px){.grid{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:560px){.grid{grid-template-columns:1fr;gap:36px}}
+.card{display:block;text-align:left;border:0;background:none;padding:0;cursor:pointer;width:100%}
+.card .ph{aspect-ratio:4/3;background:var(--tile);border-radius:6px;overflow:hidden;position:relative}
+.card .ph img{width:100%;height:100%;object-fit:cover;transition:transform .6s cubic-bezier(.2,.7,.2,1)}
+.card .ph.fit img{object-fit:contain;padding:8%}
+.card:hover .ph img{transform:scale(1.035)}
+.card .yt{position:absolute;left:12px;top:12px;background:#fff;border-radius:99px;font-size:12px;padding:3px 10px;font-weight:600}
+.card .yt::before{content:"";display:inline-block;width:0;height:0;border-left:7px solid var(--accent);border-top:4px solid transparent;border-bottom:4px solid transparent;margin-right:6px;vertical-align:1px}
+.card h3{font-size:17px;font-weight:600;margin-top:16px;line-height:1.4}
+.card .meta{font-size:14px;color:var(--sub);margin-top:4px;display:flex;gap:8px}
+.card .meta span+span::before{content:"·";margin-right:8px}
+.card.hide{display:none}
+
+/* video */
+.films{display:grid;gap:56px}
+.film{display:grid;grid-template-columns:5fr 7fr;gap:clamp(24px,4vw,56px);align-items:start}
+.film-info .label{margin-bottom:10px}
+.film-info h3{font-size:clamp(22px,2.4vw,28px);margin-bottom:14px}
+.film-info p{margin:0 0 18px;color:#3c3c3c;font-size:15px}
+.roles{display:flex;flex-wrap:wrap;gap:6px;margin:0 0 22px;padding:0;list-style:none}
+.roles li{background:var(--tile);border-radius:99px;padding:4px 12px;font-size:13px}
+.film-shots{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.film-shots button{border:0;padding:0;background:var(--tile);border-radius:4px;overflow:hidden;cursor:zoom-in;aspect-ratio:2.35/1}
+.film-shots button.wide{grid-column:1/-1}
+.film-shots img{width:100%;height:100%;object-fit:cover;transition:transform .5s}
+.film-shots button:hover img{transform:scale(1.04)}
+.film-shots .bts{aspect-ratio:4/3}
+.film-shots.three{grid-template-columns:repeat(3,1fr)}
+.textlink{display:inline-flex;align-items:center;gap:8px;font-size:15px;font-weight:600;text-decoration:none;border-bottom:1.5px solid var(--ink);padding-bottom:2px}
+.textlink:hover{color:var(--accent);border-color:var(--accent)}
+.textlink::after{content:"↗";font-weight:400}
+@media (max-width:820px){.film{grid-template-columns:1fr}}
+.vsub{font-size:18px;margin:72px 0 24px}
+.vrow{display:grid;grid-template-columns:repeat(3,1fr);gap:28px}
+.vcard{text-decoration:none;display:block}
+.vcard .ph{aspect-ratio:16/10;background:var(--tile);border-radius:6px;overflow:hidden;position:relative}
+.vcard.tall .ph{aspect-ratio:9/14}
+.vcard img{width:100%;height:100%;object-fit:cover;transition:transform .6s cubic-bezier(.2,.7,.2,1)}
+.vcard:hover img{transform:scale(1.035)}
+.play{position:absolute;right:14px;bottom:14px;width:44px;height:44px;border-radius:50%;background:#fff;display:grid;place-items:center;transition:background .2s}
+.play::before{content:"";border-left:12px solid var(--ink);border-top:7px solid transparent;border-bottom:7px solid transparent;margin-left:3px}
+.vcard:hover .play{background:var(--accent)}
+.vcard:hover .play::before{border-left-color:#fff}
+.vcard h3{font-size:16px;font-weight:600;margin-top:14px}
+.vcard p{margin:2px 0 0;font-size:14px;color:var(--sub)}
+@media (max-width:760px){.vrow{grid-template-columns:1fr 1fr}.vrow.shorts{grid-template-columns:repeat(3,1fr);gap:12px}}
+@media (max-width:480px){.vrow{grid-template-columns:1fr}}
+
+/* about */
+.about{display:grid;grid-template-columns:5fr 7fr;gap:clamp(32px,6vw,96px)}
+.about h3{font-size:15px;font-weight:600;margin:0 0 16px}
+.intro{font-size:clamp(18px,1.8vw,21px);line-height:1.7;margin:0 0 48px;color:#262626}
+.tools{list-style:none;margin:0 0 48px;padding:0;display:grid;gap:14px}
+.tools li{display:grid;grid-template-columns:120px 1fr 40px;gap:14px;align-items:center;font-size:15px}
+.tools .bar{height:3px;background:var(--line);border-radius:3px;overflow:hidden}
+.tools .bar i{display:block;height:100%;background:var(--ink);width:var(--w);transform-origin:left;transition:transform 1.2s cubic-bezier(.2,.8,.2,1)}
+.tools.pre .bar i{transform:scaleX(0)}
+.tools em{font-style:normal;color:var(--sub);text-align:right;font-size:14px}
+.list{list-style:none;margin:0 0 44px;padding:0;border-top:1px solid var(--ink)}
+.list li{display:grid;grid-template-columns:110px 1fr;gap:16px;padding:13px 0;border-bottom:1px solid var(--line);font-size:15px}
+.list time{color:var(--sub)}
+.certbtn{border:0;background:none;padding:0;cursor:pointer;text-align:left;width:100%;display:flex;justify-content:space-between;gap:12px}
+.certbtn:hover span:last-child{color:var(--accent)}
+.certbtn span:last-child{color:var(--sub);font-size:13px;white-space:nowrap}
+@media (max-width:860px){.about{grid-template-columns:1fr}}
+@media (max-width:420px){.list li{grid-template-columns:86px 1fr}.tools li{grid-template-columns:96px 1fr 36px}}
+
+/* contact */
+.contact{padding:clamp(80px,12vw,160px) 0 48px}
+.contact h2{font-size:clamp(32px,5vw,64px);line-height:1.2}
+.contact .mail{display:inline-block;margin-top:28px;font-size:clamp(20px,2.6vw,32px);font-weight:600;user-select:all;border-bottom:2px solid var(--accent);padding-bottom:4px}
+.contact .links{display:flex;gap:28px;margin-top:28px;flex-wrap:wrap}
+footer{border-top:1px solid var(--line);padding:24px 0 40px;font-size:13px;color:var(--sub)}
+footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+
+/* detail */
+.dt{position:fixed;inset:0;z-index:50;background:#fff;overflow-y:auto;display:none;overscroll-behavior:contain}
+.dt.open{display:block;animation:dtIn .35s cubic-bezier(.2,.8,.2,1)}
+@keyframes dtIn{from{opacity:0;transform:translateY(16px)}}
+.dt-bar{position:sticky;top:0;z-index:2;background:rgba(255,255,255,.92);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.dt-bar .wrap{display:flex;justify-content:space-between;align-items:center;height:60px;gap:16px}
+.dt-bar .crumb{font-size:14px;color:var(--sub);overflow:hidden;white-space:nowrap;text-overflow:ellipsis}
+.close{border:1px solid var(--line);background:#fff;border-radius:99px;padding:7px 16px;font-size:14px;cursor:pointer}
+.close:hover{border-color:var(--ink)}
+.dt-body{display:grid;grid-template-columns:4fr 8fr;gap:clamp(28px,5vw,72px);padding-top:48px;padding-bottom:96px}
+.dt-info{position:sticky;top:108px;align-self:start}
+.dt-info h2{font-size:clamp(26px,3vw,36px);line-height:1.25;margin-bottom:24px}
+.dt-info dl{display:grid;grid-template-columns:64px 1fr;gap:10px 16px;margin:0 0 28px;font-size:14px;padding:18px 0;border-top:1px solid var(--ink);border-bottom:1px solid var(--line)}
+.dt-info dt{color:var(--sub)}
+.dt-info dd{margin:0}
+.dt-info p{margin:0 0 28px;font-size:15px;color:#333}
+.sw{display:flex;gap:8px;margin-bottom:28px}
+.sw i{width:26px;height:26px;border-radius:50%;box-shadow:inset 0 0 0 1px rgba(0,0,0,.08)}
+.pn{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:8px}
+.pn button{border:1px solid var(--line);background:#fff;border-radius:6px;padding:12px;text-align:left;cursor:pointer;font-size:13px;line-height:1.4}
+.pn button:hover{border-color:var(--ink)}
+.pn small{display:block;color:var(--sub);margin-bottom:2px}
+.dt-imgs{display:grid;gap:16px}
+.dt-imgs img{width:100%;background:var(--tile);border-radius:4px}
+@media (max-width:860px){.dt-body{grid-template-columns:1fr;padding-top:28px}.dt-info{position:static}}
+
+/* motion */
+.rv{opacity:0;transform:translateY(22px)}
+.rv.in{opacity:1;transform:none;transition:opacity .8s cubic-bezier(.2,.7,.2,1),transform .8s cubic-bezier(.2,.7,.2,1);transition-delay:var(--d,0s)}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.rv{opacity:1;transform:none}*{transition:none!important;animation:none!important}}
+::selection{background:var(--accent);color:#fff}
+</style>
+</head>
+<body>
+
+<header class="top" id="top">
+  <div class="wrap">
+    <a class="brand" href="#"><i></i>권혁주</a>
+    <nav><ul>
+      <li><a href="#work">Work</a></li>
+      <li><a href="#video">Video</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul></nav>
+  </div>
+</header>
+
+<main>
+<div class="hero wrap">
+  <p class="label">Graphic · Character · Video Designer</p>
+  <h1>항상 <em>새로움</em>과 함께하는 디자이너가 되겠습니다.</h1>
+  <div class="hero-meta">
+    <span>권혁주 Kwon Hyuk Ju</span>
+    <a href="https://www.instagram.com/khjuju_159/">Instagram</a>
+    <a href="https://www.youtube.com/channel/UC0MibtyAGQenyfzHHEyBnJQ">YouTube</a>
+    <a href="../ilsang/">일상 그림 포트폴리오</a>
+  </div>
+  <div class="facts num">
+    <div><b id="fWorks">0</b><span>작업</span></div>
+    <div><b id="fVideo">0</b><span>영상 · 영화</span></div>
+    <div><b>12</b><span>자격 · 인증</span></div>
+    <div><b>5</b><span>수상</span></div>
+  </div>
+</div>
+
+<section id="work">
+  <div class="wrap">
+    <div class="shead"><h2>Work <small id="wcount"></small></h2>
+      <div class="tabs" id="tabs" role="group" aria-label="분야"></div></div>
+    <div class="subtabs" id="subtabs" role="group" aria-label="세부 분류"></div>
+    <div class="grid" id="grid"></div>
+  </div>
+</section>
+
+<section id="video">
+  <div class="wrap">
+    <div class="shead"><h2>Video</h2></div>
+    <div class="films" id="films"></div>
+    <h3 class="vsub">영상</h3>
+    <div class="vrow" id="vids"></div>
+    <h3 class="vsub">YouTube Shorts</h3>
+    <div class="vrow shorts" id="shorts"></div>
+  </div>
+</section>
+
+<section id="about">
+  <div class="wrap">
+    <div class="shead"><h2>About</h2></div>
+    <div class="about">
+      <div>
+        <p class="intro">일러스트레이터를 중심으로 편집, 모션, 3D까지 다룹니다.</p>
+        <h3>Tool</h3>
+        <ul class="tools pre" id="tools"></ul>
+      </div>
+      <div>
+        <h3>학력</h3><ul class="list num" id="edu"></ul>
+        <h3>수상</h3><ul class="list num" id="award"></ul>
+        <h3>자격 <span class="label">· 누르면 확인서 보기 (개인정보 가림)</span></h3><ul class="list num" id="cert"></ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="contact" id="contact">
+  <div class="wrap">
+    <p class="label">Contact</p>
+    <h2>다음 작업도 같이 만들어요.</h2>
+    <span class="mail">wkdcl159@gmail.com</span>
+    <div class="links hero-meta">
+      <a href="https://www.instagram.com/khjuju_159/">Instagram @khjuju_159</a>
+      <a href="https://www.youtube.com/channel/UC0MibtyAGQenyfzHHEyBnJQ">YouTube 뚱이냥</a>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer><div class="wrap"><span>© 2026 권혁주 Kwon Hyuk Ju</span><span>All works by the designer</span></div></footer>
+
+<div class="dt" id="dt" role="dialog" aria-modal="true" aria-labelledby="dtTitle">
+  <div class="dt-bar"><div class="wrap"><span class="crumb" id="dtCrumb"></span><button class="close" id="dtClose">닫기 ✕</button></div></div>
+  <div class="wrap dt-body">
+    <div class="dt-info" id="dtInfo"></div>
+    <div class="dt-imgs" id="dtImgs"></div>
+  </div>
+</div>
+
+<script>
+const R='../';
+const P=n=>`img/pf/page-${String(n).padStart(2,'0')}.jpg`, C=n=>`img/pf/cover-${String(n).padStart(2,'0')}.jpg`;
+const works=[
+ {g:'graphic',t:'돈키호테 북커버 디자인',d:'2025.6',tools:['Ai 100%'],c:['#dd9a10','#e3c400','#3a241a','#050505'],
+  p:'올제 클래스 『돈키호테』의 책 표지를 새롭게 리디자인했습니다. 따뜻한 주황 계열의 메인 컬러를 활용하고, 주인공 돈키호테와 ‘풍차‘를 거인으로 착각한’ 유명한 일화에서 영감을 받았습니다. 앞표지에는 환상 속 장면을, 뒷표지에는 현실의 모습을 담아 상상과 현실이 교차하는 돈키호테의 세계를 시각적으로 표현했습니다.',
+  cover:'img/pf/donq-board.jpg',imgs:['img/pf/donq-board.jpg','img/pf/donq-flat.jpg',P(6)]},
+ {g:'graphic',t:'제3회 오뚜기 일러스트전 포스터',d:'2024.12',tools:['Ai 100%'],c:['#c42b21','#e85a4f','#f0dc3c','#f7f2b8'],
+  p:'이 작품은 제 3회 오뚜기 일러스트전 출품작입니다 당시 주제였던 55주년 오뚜기 크림스프를 폴리곤 아트를 통해 보석처럼 오뚜기 크림스프를 표현하였습니다.',cover:C(7),imgs:[P(7),P(8)]},
+ {g:'graphic',t:'크리넥스 휴지케이스 디자인',d:'2023.9',tools:['Ai 100%'],c:['#e0900f','#e47630','#5a3d26','#5fa337'],
+  p:'크리넥스사의 휴지 케이스를 개천절을 주제로 디자인했습니다. 단군신화를 모티브로 호랑이와 곰, 주변의 산과 나무 등을 폴리곤 아트 스타일로 표현하여 제작했습니다.',cover:C(9),imgs:[P(9)]},
+ {g:'graphic',t:'아이리스 아웃 모션그래픽',d:'2025',tools:['Ai 40%','Ae 40%','C4D 20%'],c:['#ee6c1c','#f0e02c','#58b04a','#7e4a85'],
+  p:'요네즈 켄시(J-Pop 아티스트)의 음악에 맞추어 애니메이션 〈체인소맨〉을 모티브로 한 모션그래픽 애니메이션을 제작하였습니다.',cover:C(10),imgs:[P(10),P(11)],yt:'https://youtu.be/kgtx2koY4TA'},
+ {g:'graphic',t:'앨범 커버 디자인',d:'2024.9',tools:['Ai 100%'],c:['#e5288f','#d6481e','#f0e02c','#9a8bc0'],
+  p:'YOASOBI라는 뮤지션의 CD 앨범 커버를 리뉴얼한 작품입니다.',cover:C(12),imgs:[P(12),P(13)]},
+ {g:'graphic',t:'부평 2023 풍물대축제 포스터',d:'2023.11',tools:['Ai 100%'],c:['#c41e2a','#1e3c8c','#111111','#f2efe8'],
+  p:'부평 풍물 대축제라는 주제로 열린 교내 포스터 공모전 3위 수상작품 입니다.',cover:C(14),imgs:[P(14)]},
+ {g:'graphic',t:'인포그래픽 · 권혁주 도감',d:'',tools:['Ai','Id'],c:['#d81e3a','#f4a7c0','#1a3a6b','#f5e66a'],
+  p:'게임 속 도감을 펼친 것처럼 꾸민 자기소개 인포그래픽. 툴 레벨, MBTI, 좋아하는 것, 성격 그래프를 픽셀 캐릭터와 함께 담았습니다.',cover:'img/chr/infographic.jpg',imgs:['img/chr/infographic.jpg']},
+ {g:'graphic',t:'벡터 일러스트 · 해변의 괴수 대결',d:'',tools:['Ai'],c:['#5aa6d6','#1a1a1a','#ef5a50','#d8cba8'],
+  p:'해수욕장과 현수교를 배경으로 거대 괴수와 거대 히어로가 맞붙는 장면을 벡터로 그린 팬아트 일러스트입니다.',cover:'img/chr/kaiju.jpg',imgs:['img/chr/kaiju.jpg']},
+ {g:'graphic',t:'인포그래픽 · 인터넷 베스트 알고리즘 푸드',d:'',tools:[],c:['#e8956a','#5f7774','#e9e7e2','#c8322b'],
+  p:'2인 1조로 만든 인포그래픽입니다. 인터넷에서 유행하는 음식들을 소개합니다. 담당 : 마라탕, 두쫀쿠, 허니버터칩, 달고나 커피, 로고, 배경 등',
+  cover:'img/chr/foodinfo.jpg',fit:1,imgs:['img/chr/foodinfo.jpg']},
+ {g:'graphic',t:'캐릭터 포스터 · 말랑쫀득 일상이',d:'',tools:['Ps','Ai'],c:['#f6c514','#5a3a26','#f7b9a8','#1a1a1a'],
+  p:'노란 티셔츠의 자캐 \'일상이\'를 펠트 인형, 로우폴리 3D, 애니 일러스트, 픽셀아트, 유리 피규어 등 여러 스타일로 다시 그려 한 장에 모은 키비주얼 포스터입니다.',cover:'img/chr/malil.jpg',imgs:['img/chr/malil.jpg']},
+
+ {g:'graphic',feature:1,fit:1,t:'BI · 크리밸런스',d:'',tools:['Ai'],c:['#546e37','#e3a838','#b39a8a','#5e4239'],
+  p:'"입은 즐겁게! 몸은 가벼운!"을 슬로건으로 한 브랜드 로고. 잎과 곡선을 겹친 심볼을 그린과 머스터드로 채우고, 워드마크는 브라운 그라데이션과 오렌지 포인트로 짰습니다.',cover:'img/pf/crebalance.jpg',imgs:['img/pf/crebalance.jpg']},
+ {g:'graphic',t:'BI · 킷팩토리',d:'2025.3',tools:['Ai 70%','Ps 30%'],c:['#e60012','#b31e24','#595757','#3a3a3a'],
+  p:'BI 디자인입니다. 킷팩토리는 프라모델을 만들며 음료를 즐기는 이색 카페를 모방한 가상의 브랜드입니다.',
+  cover:'img/kit/k01.jpg',imgs:['img/kit/logo.jpg'].concat(Array.from({length:17},(_,i)=>`img/kit/k${String(i+1).padStart(2,'0')}.jpg`),[P(16),P(17),P(18)])},
+ {g:'graphic',t:'별을 품은 트럼프카드',d:'2025.9',tools:['Ai 100%'],c:['#22308f','#e8577f','#ffffff','#3a7fc8'],
+  p:'일러스트 프로그램을 활용하여 별과 마법을 콘셉트로 한 카드를 제작하였습니다. 카드 중앙의 마법진에는 행운을 기원하는 룬 문자가 새겨져 있으며, 이는 카드게임을 즐길 때 플레이어에게 행운이 깃들기를 바라는 의미를 담고 있습니다.',cover:C(19),imgs:[P(19),P(20)]},
+ {g:'graphic',t:'닉네임 타이포그래픽',d:'2023.9',tools:['Ai 100%'],c:['#f2b632','#e04e8b','#6a3fa0','#2f2a6b'],
+  p:'닉네임을 사용하여 만든 타이포그래픽 작품입니다, 다양한 색을 사용하여 만들어 보았고 중앙 구역에 닉네임을 강조하기 위하여 하얀 선을 추가하여 닉네임을 강조하였고 상단 구역은 폴리곤 기법을 사용하여 보석처럼 연출하였습니다.',cover:C(21),imgs:[P(21)]},
+ {g:'graphic',t:'게임 디자인 · 다다닷 지구탈출',d:'2025.11',tools:['Ai 100%'],c:['#9a2a22','#1e5a92','#333333','#8e8a8c'],
+  p:'게임은 아케이드 런 게임 장르로, 유명한 예시로는 "서브웨이 서퍼", "템플런" 등이 있습니다. 주인공 \'스로트\'는 외계인의 침략을 받아 무너져가는 지구에서 안전한 대피소로 도망치는 게임입니다.',cover:'img/pf/dadadat-logo.jpg',fit:1,imgs:['img/pf/dadadat-logo.jpg',P(22),P(23)]},
+ {g:'graphic',feature:1,t:'3D 그래픽 배경화면',d:'2025.10',tools:['C4D 100%'],c:['#e0a400','#f0d060','#202020','#808080'],
+  p:'시네마 4D를 이용한 3D 배경화면입니다 자물쇠 오브젝트와 열쇠 오브젝트를 제작하여 벤딩 툴을 이용하였고 황금색 메테리얼을 제작하여 렌더링 하였습니다',cover:C(26),imgs:[P(26),P(27)]},
+ {g:'graphic',feature:1,t:'2026 일러스트 달력',d:'2025.12',tools:['Ai'],c:['#ffd23f','#f4a7c0','#6aa7d8','#3a3a3a'],
+  p:'나를 닮은 캐릭터가 열두 달 동안 졸업하고, 벚꽃을 보고, 전대 히어로가 되고, 8번 출구에 갇힙니다. 표지와 일러스트 12장, 날짜 면 12장을 모두 직접 그리고 편집한 25쪽 달력입니다.',
+  cover:'img/cal-01.jpg',imgs:Array.from({length:25},(_,i)=>`img/cal-${String(i+1).padStart(2,'0')}.jpg`)},
+ {g:'graphic',t:'실사판 리자몽 가습기',d:'2026.6',tools:['ZBrush','3D 프린터'],c:['#d9531e','#f2c14e','#3c6e4a','#1a1a1a'],
+  p:'고오스 가습기 굿즈에서 착안해 ZBrush로 실사판 리자몽을 조각하고, 속을 비워 3D 프린트한 뒤 서페이서와 도색을 거쳐 실제로 쓰는 가습기로 완성했습니다. 꼬리 불꽃 자리에서 수증기가 올라옵니다.',
+  cover:'img/char-final.jpg',imgs:['img/char-final.jpg','img/char-zb.jpg','img/char-hollow.jpg','img/char-print.jpg'],yt:'https://youtu.be/VIUzeh7iqwY'},
+ {g:'graphic',t:'블렌더 랜덤 피규어 만들기',d:'2025.9',tools:['Blender 100%'],c:['#d98a85','#f6cec4','#1f3463','#f2a220'],
+  p:'블렌더를 이용하여 모델링한 랜덤 피규어입니다. 해양생물 우파루파를 모티브로 만들었고 다양한 악세서리를 들고 있는 것으로 변형을 주었습니다.',
+  cover:'img/np/cover-09.jpg',imgs:['img/np/page-09.jpg','img/np/page-10.jpg']},
+ {g:'graphic',t:'위험한 날 영화 포스터',d:'2025.4',tools:['Ps 80%','Ai 20%'],c:['#3c4a2a','#7f2a3e','#ffffff','#777770'],
+  p:'무료 이미지 사이트의 이미지를 서칭하여 그 이미지의 분위기에 맞추어 제작한 포스터 디자인 입니다.',cover:'img/poster-danger.jpg',imgs:['img/poster-danger.jpg',P(24),P(25)]},
+
+ {g:'character',t:'이모티콘 · 그냥저냥 다이어트냥',d:'2024.7',tools:['Ps 30%'],c:['#e8b828','#e04040','#ffffff','#333333'],
+  p:'그냥 저냥 다이어트냥 이모티콘은 일상 생활 중 다이어트를 공감할 수 있게 코믹하게 만든 이모티콘 입니다',cover:C(29),imgs:[P(29),P(30)]},
+ {g:'character',t:'수인 캐릭터 · 달토끼 도키',d:'2025.5',tools:['Clip Studio 70%','Ai 30%'],c:['#b49ad2','#f6c6d6','#ffffff','#962c52'],
+  p:'\'수인 캐릭터 만들기\'라는 주제로 만든 토끼 수인 캐릭터 입니다. 다양한 감정과 자세로 역동적인 캐릭터를 만들었습니다.',cover:'img/chr/doki-sheet.jpg',imgs:['img/chr/doki-sheet.jpg',P(31)]},
+ {g:'character',t:'캐릭터 공모전 · 전남생명과학고 나리',d:'2024.5',tools:['Ai 30%'],c:['#555555','#fde4cc','#f2c2d0','#333333'],
+  p:'전남생명과학고등학교의 마스코트 만들기 공모전 출품작입니다. 전남생명과학고등학교에서 사육 중인 흑염소를 모티브로 디자인하였고, 전남생명과학고등학교의 교화인 개나리에서 \'나리\'라는 이름을 따왔습니다.',cover:C(32),imgs:[P(32),P(33)]},
+ {g:'character',t:'액션 일러스트 · 대결',d:'',tools:['Clip Studio'],c:['#2a2550','#5a4cff','#f2c514','#f06a4a'],
+  p:'자캐와 은발 캐릭터의 대결 장면을 모션 블러, 스피드 라인, 발광 효과로 연출한 액션 컷 시리즈입니다.',cover:'img/chr/vs.jpg',imgs:['img/chr/vs.jpg','img/chr/jump.jpg','img/chr/orange.jpg']},
+ {g:'character',t:'일상 일러스트 · 노래방',d:'',tools:['Procreate'],c:['#2f8a52','#5a3a26','#f2b8c6','#e8e2d8'],
+  p:'마이크를 들고 신난 자캐와 함께 춤추는 고양이, 우파루파 인형을 무지갯빛 조명 속에 그린 노래방 한 장면입니다.',cover:'img/chr/karaoke.jpg',imgs:['img/chr/karaoke.jpg']},
+ {g:'character',t:'일상 일러스트 · 문밖의 고양이',d:'',tools:['Procreate'],c:['#3a2f2a','#c99a5b','#e8e2d8','#a8c8e8'],
+  p:'침대에서 자고 있는 나를 고양이가 문밖에서 가만히 지켜보는 순간을, 내려다보는 구도와 부드러운 그림자로 담았습니다.',cover:'img/chr/cat.jpg',imgs:['img/chr/cat.jpg']},
+ {g:'character',t:'SD 팬아트 · 프리렌',d:'',tools:['Clip Studio'],c:['#0f0a2a','#e8e4dc','#d4a017','#c4161c'],
+  p:'〈장송의 프리렌〉의 프리렌을 자캐 특유의 얼굴형(ㅅ자 입, 볼록한 볼)으로 바꿔 그린 SD 팬아트. 별빛이 흩날리는 밤하늘을 배경으로 지팡이를 든 모습을 담았습니다.',cover:'img/chr/sd.jpg',imgs:['img/chr/sd.jpg']}
+];
+const TYPES={'알고리즘 푸드':'포스터·편집','블렌더':'모션·3D','달력':'포스터·편집','리자몽':'모션·3D','돈키호테':'포스터·편집','오뚜기':'포스터·편집','크리넥스':'브랜딩·패키지','아이리스':'모션·3D','앨범':'포스터·편집','부평':'포스터·편집','크리밸런스':'브랜딩·패키지','킷팩토리':'브랜딩·패키지','트럼프':'브랜딩·패키지','닉네임':'일러스트·타이포','다다닷':'브랜딩·패키지','3D':'모션·3D','위험한 날':'포스터·편집','괴수':'일러스트·타이포','다이어트냥':'캐릭터','도키':'캐릭터','나리':'캐릭터','일상이':'포스터·편집','대결':'일러스트','팬아트':'팬아트','도감':'포스터·편집','괴수':'일러스트·타이포','노래방':'일러스트','고양이':'일러스트'};
+const certs=[
+ ['전자출판기능사 · 컴퓨터그래픽기능사','2025.07.18 · 2024.12.11','national'],
+ ['GTQ인디자인 1급','2024.06.14','gtq-indesign'],['GTQ일러스트 2급','2024.01.12','gtq-illust'],['GTQ 1급','2023.11.17','gtq'],
+ ['ACP · Video Design','2025.08.29','ACP_VideoDesign'],['ACP · After Effects','2025.08.29','ACP_AfterEffects'],['ACP · Premiere Pro','2025.08.29','ACP_PremierePro'],
+ ['ACP · Visual Design','2025.08.22','ACP_VisualDesign'],['ACP · Illustrator','2025.08.22','ACP_Illustrator'],['ACP · Photoshop','2025.08.22','ACP_Photoshop'],['ACP · InDesign','2025.08.22','ACP_InDesign']
+];
+const ev=[
+ ['2026.01.02','학력','문학정보고등학교 졸업'],
+ ['2025.10.31','수상','남동구 청년 미디어(숏폼) 영상 공모전 우수상'],
+ ['2025.08.29','자격','ACP Video Design · After Effects · Premiere Pro'],
+ ['2025.08.22','자격','ACP Visual Design · Illustrator · Photoshop · InDesign'],
+ ['2025.07.18','자격','전자출판기능사'],
+ ['2025.01.03','수상','선행상'],
+ ['2024.12.11','자격','컴퓨터그래픽기능사'],
+ ['2024.06.14','자격','GTQ인디자인 1급'],
+ ['2024.01.25','수상','봉사상 · 기능상'],
+ ['2024.01.12','자격','GTQ일러스트 2급'],
+ ['2023.11.17','자격','GTQ 1급'],
+ ['2023.11','수상','부평 풍물대축제 교내 포스터 공모전 3위'],
+ ['2023.03','학력','문학정보고등학교 입학']
+];
+const u=x=>/^https?:/.test(x)?x:R+x;
+const esc=s=>String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/"/g,'&quot;');
+const clean=t=>t.replace(/^(BI|인포그래픽|벡터 일러스트|캐릭터 포스터|게임 디자인|이모티콘|수인 캐릭터|캐릭터 공모전|액션 일러스트|일상 일러스트|SD 팬아트) · /,'');
+
+/* lettering items */
+const lett=[
+ ['편의점 바니','img/logo-bunny.jpg','타이틀 로고'],['내가 왜 너야?!','img/logo-naega.jpg','타이틀 로고'],['사고물건이야','img/logo-sago.jpg','타이틀 로고'],
+ ['스포츠','img/logo-sports.jpg','타이틀 로고'],['오네 159','img/logo-one159.jpg','타이틀 로고'],
+ ['Waiting Life','img/poster-waiting.jpg','포스터'],['스파이더맨 한글 로고','img/poster-spider.jpg','팬 로컬라이징'],['가면라이더 가브','img/poster-gavv.jpg','팬 로컬라이징']
+];
+lett.forEach(([t,img,ty])=>works.push({g:'lettering',t,d:'',tools:[],c:[],p:'',cover:img,imgs:[img],fit:1,type:ty}));
+works.forEach(w=>{if(!w.type)w.type=Object.entries(TYPES).find(([k])=>w.t.includes(k))?.[1]||'기타'});
+const G={graphic:'그래픽',character:'캐릭터',lettering:'레터링 · 포스터'};
+
+/* grid */
+const grid=document.getElementById('grid');
+works.forEach((w,i)=>{
+  const b=document.createElement('button');b.className='card rv';b.dataset.i=i;b.dataset.g=w.g;b.dataset.t=w.type;
+  b.innerHTML=`<div class="ph${w.fit?' fit':''}">${w.yt?'<span class="yt">영상</span>':''}<img src="${u(w.cover)}" alt="" loading="lazy"></div>
+  <h3>${esc(clean(w.t))}</h3><div class="meta"><span>${esc(w.type)}</span>${w.d?`<span class="num">${w.d}</span>`:''}</div>`;
+  grid.appendChild(b);
+});
+document.getElementById('fWorks').textContent=works.length;
+const tabs=document.getElementById('tabs'),sub=document.getElementById('subtabs'),wc=document.getElementById('wcount');
+let curG='*',curT='*';
+function apply(){let n=0;grid.querySelectorAll('.card').forEach(c=>{const on=(curG==='*'||c.dataset.g===curG)&&(curT==='*'||c.dataset.t===curT);c.classList.toggle('hide',!on);if(on){n++;c.classList.add('in')}});wc.textContent=n}
+function mk(box,label,val,cur,fn){const b=document.createElement('button');b.textContent=label;b.setAttribute('aria-pressed',val===cur);b.onclick=()=>fn(val);box.appendChild(b)}
+function drawTabs(){tabs.innerHTML='';mk(tabs,'전체','*',curG,v=>{curG=v;curT='*';drawTabs()});Object.entries(G).forEach(([k,l])=>mk(tabs,l,k,curG,v=>{curG=v;curT='*';drawTabs()}));
+  sub.innerHTML='';if(curG!=='*'){const ts=[...new Set(works.filter(w=>w.g===curG).map(w=>w.type))];if(ts.length>1){mk(sub,'전체','*',curT,v=>{curT=v;drawTabs()});ts.forEach(t=>mk(sub,t,t,curT,v=>{curT=v;drawTabs()}))}}
+  apply()}
+drawTabs();
+
+/* video */
+const films=[
+ {t:'학교괴담 : 귀문(鬼門)',k:'단편영화',p:'과제에 쫓겨 밤늦도록 학교에 남아 있던 대학생 네 명. 밤 12시부터 12시 4분 사이 엘리베이터를 타면 귀문이 열린다는 괴담을 확인하러 엘리베이터에 오른다. 반복되는 시도 끝에 들려온 “4층입니다”라는 낯선 음성. 문이 열리는 순간 익숙했던 학교는 이질적으로 변하고, 귀신에 홀려 죽고 죽이는 비극이 시작된다.',
+  roles:['음향 (붐마이크)','세팅 장비 대여','촬영 · 편집 도움','초기 각본 제작'],yt:'https://youtu.be/OvzFsXJBX3Y',shots:['img/film/s1.jpg','img/film/s2.jpg','img/film/s3.jpg','img/film/s4.jpg'],bts:['img/film/set.jpg','img/film/boom.jpg','img/film/gear.jpg']},
+ {t:'SFB7731',k:'단편영화',p:'해고당한 전직 약품 연구원 곽호는 사람의 사회적 얼굴과 진짜 얼굴을 뒤집는 약을 몰래 만들고 있다. 실패를 거듭하던 쥐 실험이 마침내 성공하자, 곽호는 인체 실험 대상으로 앞뒤가 가장 다른 사람을 찾는다. 상사 앞에서는 굽신거리지만 혼자 있을 땐 욕을 하는 인턴 도훈이 그 대상이 되고, 곽호는 약이 든 초콜릿을 건넨 뒤 카메라로 모든 것을 기록한다. 약을 먹은 도훈은 억눌러 왔던 폭력성을 드러내며 상사들을 공격하고 사무실을 뛰쳐나간다. 곽호의 실험은 성공으로 기록하며 비디오가 끊긴다.',
+  roles:['부장 역 배우','스턴트 연기','배우 섭외'],yt:'https://youtu.be/r959c0LE7qY',shots:['img/film/b1.jpg','img/film/b2.jpg','img/film/b3.jpg'],bts:[]},
+ {t:'영상 프로젝트',k:'참여 프로젝트',p:'',roles:['배우 섭외','짐벌 촬영'],yt:'https://youtu.be/m4eXw6AxJKE',shots:[],bts:[]}
+];
+const fbox=document.getElementById('films');
+films.forEach((f,fi)=>{
+  const el=document.createElement('article');el.className='film rv';
+  const all=f.shots.concat(f.bts);
+  let shots='';
+  if(all.length){shots='<div class="film-shots">'+f.shots.map((s,i)=>`<button class="${f.shots.length===3&&i===0?'wide':''}" data-f="${fi}" data-k="${i}"><img src="${u(s)}" alt="${esc(f.t)} 장면 ${i+1}" loading="lazy"></button>`).join('')+'</div>';
+    if(f.bts.length)shots+='<p class="label" style="margin:14px 0 8px">촬영 현장</p><div class="film-shots three">'+f.bts.map((s,i)=>`<button class="bts" data-f="${fi}" data-k="${f.shots.length+i}"><img src="${u(s)}" alt="촬영 현장 ${i+1}" loading="lazy"></button>`).join('')+'</div>'}
+  el.innerHTML=`<div class="film-info"><p class="label">${f.k}</p><h3>${esc(f.t)}</h3>${f.p?`<p>${esc(f.p)}</p>`:''}<ul class="roles">${f.roles.map(r=>`<li>${r}</li>`).join('')}</ul><a class="textlink" href="${f.yt}">유튜브에서 보기</a></div><div>${shots}</div>`;
+  fbox.appendChild(el);
+});
+const vids=[
+ ['청년미디어타워 홍보 숏폼','남동구 청년 미디어 영상 공모전 우수상','img/vid/s7.jpg','https://www.youtube.com/shorts/BuT1brME6ow'],
+ ['실사판 리자몽 가습기 만들기','제작 과정 영상 · 3:18','img/char-final.jpg','https://youtu.be/VIUzeh7iqwY'],
+ ['아이리스 아웃 모션그래픽','〈체인소맨〉 모티브 모션그래픽',C(10),'https://youtu.be/kgtx2koY4TA']];
+const shorts=[['이라스토야 PPPP','media/m1.jpg','https://youtube.com/shorts/-Ik9qXkgRQY'],['미쿠 메들리 쇼츠','media/m2.jpg','https://youtube.com/shorts/WMRiAe1Fw_Q'],['트릭컬 리바이브 팬 애니','media/m3.jpg','https://youtube.com/shorts/XVah0plQoeo']];
+document.getElementById('vids').innerHTML=vids.map(([t,s,img,l])=>`<a class="vcard rv" href="${l}"><div class="ph"><img src="${u(img)}" alt="" loading="lazy"><span class="play"></span></div><h3>${t}</h3><p>${s}</p></a>`).join('');
+document.getElementById('shorts').innerHTML=shorts.map(([t,img,l])=>`<a class="vcard tall rv" href="${l}"><div class="ph"><img src="${u(img)}" alt="" loading="lazy"><span class="play"></span></div><h3>${t}</h3><p>뚱이냥</p></a>`).join('');
+document.getElementById('fVideo').textContent=films.length+vids.length+shorts.length;
+
+/* about */
+const tools=[['Illustrator',98],['Photoshop',92],['After Effects',84],['Cinema 4D',78],['Premiere Pro',68],['InDesign',65]];
+document.getElementById('tools').innerHTML=tools.map(([n,v])=>`<li>${n}<span class="bar"><i style="--w:${v}%"></i></span><em class="num">${v}</em></li>`).join('');
+const row=(d,t)=>`<li><time>${d}</time><span>${esc(t)}</span></li>`;
+document.getElementById('edu').innerHTML=ev.filter(e=>e[1]==='학력').map(e=>row(e[0],e[2])).join('');
+document.getElementById('award').innerHTML=ev.filter(e=>e[1]==='수상').map(e=>row(e[0],e[2])).join('');
+document.getElementById('cert').innerHTML=certs.map((c,i)=>`<li><time>${c[1].slice(0,10)}</time><button class="certbtn" data-c="${i}"><span>${esc(c[0])}</span><span>보기</span></button></li>`).join('');
+
+/* detail */
+const dt=document.getElementById('dt'),info=document.getElementById('dtInfo'),imgs=document.getElementById('dtImgs'),crumb=document.getElementById('dtCrumb');
+let lastFocus=null;
+function openPanel(){if(!dt.classList.contains('open')){lastFocus=document.activeElement;dt.classList.add('open');document.body.style.overflow='hidden'}dt.scrollTop=0;document.getElementById('dtClose').focus()}
+function closePanel(){dt.classList.remove('open');document.body.style.overflow='';lastFocus&&lastFocus.focus()}
+function showWork(i){
+  const w=works[i],same=works.filter(x=>x.g===w.g),pos=same.indexOf(w),prev=same[(pos-1+same.length)%same.length],next=same[(pos+1)%same.length];
+  crumb.textContent=`${G[w.g]} · ${pos+1} / ${same.length}`;
+  const tl=w.tools.length?w.tools.join(', '):'';
+  info.innerHTML=`<h2 id="dtTitle">${esc(clean(w.t))}</h2><dl><dt>분류</dt><dd>${esc(w.type)}</dd>${w.d?`<dt>제작</dt><dd class="num">${w.d}</dd>`:''}${tl?`<dt>툴</dt><dd>${esc(tl)}</dd>`:''}</dl>
+   ${w.p?`<p>${esc(w.p)}</p>`:''}${w.c.length?`<div class="sw">${w.c.map(c=>`<i style="background:${c}" title="${c}"></i>`).join('')}</div>`:''}
+   ${w.yt?`<p><a class="textlink" href="${w.yt}">유튜브에서 영상 보기</a></p>`:''}
+   <div class="pn"><button data-go="${works.indexOf(prev)}"><small>← 이전</small>${esc(clean(prev.t))}</button><button data-go="${works.indexOf(next)}"><small>다음 →</small>${esc(clean(next.t))}</button></div>`;
+  imgs.innerHTML=w.imgs.map((s,k)=>`<img src="${u(s)}" alt="${esc(clean(w.t))} ${k+1}" loading="${k?'lazy':'eager'}">`).join('');
+  openPanel();
+}
+function showSet(title,label,list,start){
+  crumb.textContent=label;info.innerHTML=`<h2 id="dtTitle">${esc(title)}</h2>`;
+  imgs.innerHTML=list.map(s=>`<img src="${u(s)}" alt="" loading="lazy">`).join('');openPanel();
+  const t=imgs.children[start||0];if(t)setTimeout(()=>dt.scrollTo({top:t.offsetTop-80}),30);
+}
+document.addEventListener('click',e=>{
+  const c=e.target.closest('.card');if(c){showWork(+c.dataset.i);return}
+  const g=e.target.closest('[data-go]');if(g){showWork(+g.dataset.go);return}
+  const f=e.target.closest('[data-f]');if(f){const fm=films[+f.dataset.f];showSet(fm.t,fm.k,fm.shots.concat(fm.bts),+f.dataset.k);return}
+  const ce=e.target.closest('[data-c]');if(ce){const k=+ce.dataset.c;showSet('자격 확인서','생년월일·주소·등록번호 등 개인정보 가림',certs.map(c=>`img/cert/${c[2]}.jpg`),k);return}
+});
+document.getElementById('dtClose').onclick=closePanel;
+document.addEventListener('keydown',e=>{if(e.key==='Escape'&&dt.classList.contains('open'))closePanel()});
+
+/* motion */
+const hdr=document.getElementById('top');
+addEventListener('scroll',()=>hdr.classList.toggle('scrolled',scrollY>8),{passive:true});
+const links=[...document.querySelectorAll('nav a')],secs=links.map(a=>document.querySelector(a.getAttribute('href')));
+addEventListener('scroll',()=>{let cur=null;secs.forEach(s=>{if(s.getBoundingClientRect().top<innerHeight*.4)cur=s.id});links.forEach(a=>a.classList.toggle('on',a.getAttribute('href')==='#'+cur))},{passive:true});
+const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+const io=new IntersectionObserver(es=>es.forEach(en=>{if(en.isIntersecting){en.target.classList.add('in');io.unobserve(en.target)}}),{rootMargin:'0px 0px -6% 0px'});
+document.querySelectorAll('.rv').forEach((el,i)=>{if(reduce||el.getBoundingClientRect().top<innerHeight){el.classList.add('in')}else{el.style.setProperty('--d',(i%3)*0.06+'s');io.observe(el)}});
+const tl=document.getElementById('tools');
+new IntersectionObserver((es,o)=>{if(es[0].isIntersecting){tl.classList.remove('pre');o.disconnect()}},{threshold:.3}).observe(tl);
+</script>
+</body>
+</html>
