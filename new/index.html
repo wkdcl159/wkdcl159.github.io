@@ -156,7 +156,7 @@ section{padding:clamp(64px,9vw,120px) 0;border-top:1px solid var(--line)}
 .dhead{display:flex;justify-content:space-between;align-items:baseline;gap:16px;margin:0 0 24px}
 .dhead h3{font-size:20px}
 .cols+.dhead{margin-top:clamp(40px,6vw,80px)}
-.cols{display:grid;grid-template-columns:repeat(4,1fr);gap:clamp(12px,2vw,28px);align-items:start;padding-bottom:clamp(60px,10vw,160px)}
+.cols{display:grid;grid-template-columns:repeat(4,1fr);gap:clamp(12px,2vw,28px) clamp(12px,2vw,28px);row-gap:clamp(24px,3vw,40px);align-items:start;padding-bottom:clamp(60px,10vw,160px)}
 .col{border-radius:10px;overflow:hidden;background:#fff;box-shadow:0 14px 40px rgba(20,20,40,.12),0 1px 3px rgba(20,20,40,.06);cursor:zoom-in;transition:transform .4s cubic-bezier(.2,.8,.2,1),box-shadow .3s}
 .col:nth-child(even){margin-top:clamp(60px,10vw,160px)}
 .col img{width:100%;display:block}
@@ -212,7 +212,11 @@ footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
 .bubbles .card .ph img{width:100%;height:100%;object-fit:cover}
 .bubbles .card .ph.fit{background:#fff}
 .bubbles .card .ph.fit img{object-fit:contain;padding:16%}
-.bubbles .card:hover .ph,.bubbles .card:focus-visible .ph{transform:scale(1.08);box-shadow:0 0 0 2px var(--ink)}
+.bubbles .card{z-index:1}
+.bubbles .card:hover,.bubbles .card:focus-visible,.bubbles .card.touch{z-index:10}
+.bubbles .card:hover .ph,.bubbles .card:focus-visible .ph,.bubbles .card.touch .ph{transform:scale(1.32);box-shadow:0 14px 40px rgba(0,0,0,.18),0 0 0 2px var(--ink)}
+.bubbles .card:hover .tag,.bubbles .card.touch .tag{transform:translateY(34px);transition:transform .35s cubic-bezier(.3,1.4,.5,1)}
+.bubbles .tag{transition:transform .35s}
 .bubbles .card .yt{left:50%;top:auto;bottom:10%;transform:translateX(-50%);position:absolute}
 .bubbles .tag{position:relative;z-index:1;margin-top:12px;display:block;line-height:1.35}
 .bubbles .tag b{display:block;font-size:14px;font-weight:600}
@@ -223,6 +227,8 @@ footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
 .burst.fit{background-size:contain;background-color:#fff}
 @media (prefers-reduced-motion:reduce){.bubbles .card .ph{animation:none}}
 /* motion */
+grid.addEventListener('touchstart',e=>{const c=e.target.closest('.card');grid.querySelectorAll('.card.touch').forEach(x=>x!==c&&x.classList.remove('touch'));if(c)c.classList.add('touch')},{passive:true});
+grid.addEventListener('touchend',()=>setTimeout(()=>grid.querySelectorAll('.card.touch').forEach(x=>x.classList.remove('touch')),650),{passive:true});
 .rv{opacity:0;transform:translateY(22px)}
 .rv.in{opacity:1;transform:none;transition:opacity .8s cubic-bezier(.2,.7,.2,1),transform .8s cubic-bezier(.2,.7,.2,1);transition-delay:var(--d,0s)}
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.rv{opacity:1;transform:none}*{transition:none!important;animation:none!important}}
@@ -285,16 +291,12 @@ footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
 
 <section id="detail">
   <div class="wrap">
-    <div class="shead"><h2>상세페이지 <small>2</small></h2></div>
-    <div class="dhead"><h3>Cream Angels</h3><button class="textlink plain" data-open-detail="0">원본 크게 보기</button></div>
-    <div class="cols" >
+    <div class="shead"><h2>상세페이지 <small>Cream Angels · Star Saber</small></h2></div>
+    <div class="cols">
       <div class="col" data-d="0" style="--k:1"><img src="../img/detail/col-1.jpg?v=3" alt="크림 엔젤스 상세페이지 1" loading="lazy"></div>
       <div class="col" data-d="0" style="--k:2"><img src="../img/detail/col-2.jpg?v=3" alt="크림 엔젤스 상세페이지 2" loading="lazy"></div>
       <div class="col" data-d="0" style="--k:3"><img src="../img/detail/col-3.jpg?v=3" alt="크림 엔젤스 상세페이지 3" loading="lazy"></div>
       <div class="col" data-d="0" style="--k:4"><img src="../img/detail/col-4.jpg?v=3" alt="크림 엔젤스 상세페이지 4" loading="lazy"></div>
-    </div>
-    <div class="dhead"><h3>Star Saber</h3><button class="textlink plain" data-open-detail="1">원본 크게 보기</button></div>
-    <div class="cols">
       <div class="col" style="--k:1" data-d="1"><img src="../img/detail/saber-col-1.jpg?v=1" alt="스타 세이버 상세페이지 1" loading="lazy"></div>
       <div class="col" style="--k:2" data-d="1"><img src="../img/detail/saber-col-2.jpg?v=1" alt="스타 세이버 상세페이지 2" loading="lazy"></div>
       <div class="col" style="--k:3" data-d="1"><img src="../img/detail/saber-col-3.jpg?v=1" alt="스타 세이버 상세페이지 3" loading="lazy"></div>
