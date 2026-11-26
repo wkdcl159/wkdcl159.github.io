@@ -36,7 +36,8 @@
     '40db731af863ab26ccd1da1a3e82e83a': 'char_yellowtee.jpg',
     '9bb4e59d80a4c2ddc0638b1e98ee2740': 'char_silver.jpg',
     '47042842c43c3d2dc960d84af47671bf': 'char_yellowtee2.jpg',
-    '17f50079662b10764806a6240f4f0f3a': 'diary_vsrang.jpg'
+    '17f50079662b10764806a6240f4f0f3a': 'diary_vsrang.jpg',
+    'ac992dc0870bccdd1b80db2000da68a0': 'char_suu_koma.jpg'
   };
   const EGGS = [
       { k: 'heart10', title: '하트 브레이커', desc: '큰 하트를 10번 눌러 깨뜨렸다', hint: '가운데 큰 하트를 여러 번 콕콕' },
@@ -73,6 +74,7 @@
     { id: '1490170bb2506d4a801f458e9dbdc236', file: 'black_cat.png', title: '검은 고양이', kind: 'char', alt: '브이 포즈를 한 검은 고양이 소녀' },
     { id: '37706d61e32bd9a4b29ffc096a354852', file: 'furina.png', title: '원신 · 푸리나', kind: 'fan', alt: '푸리나 SD 그림' },
     { id: 'c6eb7774c7778c01f4b0dacb82eb3471', file: 'frieren.png', title: '장송의 프리렌 · 프리렌', kind: 'fan', alt: '별빛 밤하늘 아래 지팡이를 든 프리렌 SD 그림' },
+    { id: 'ac992dc0870bccdd1b80db2000da68a0', file: 'suu_komasan.png', title: '미즈미야 스우 & 코마상', kind: 'fan', alt: '빨간 배경에서 미즈미야 스우와 코마상이 나란히 포즈를 잡은 SD 그림' },
     { id: '9bb4e59d80a4c2ddc0638b1e98ee2740', file: 'rang.png', title: '랑', kind: 'char', alt: '푸른 빛줄기 사이로 은발의 랑이 뛰어오르는 그림' },
     { id: '3f48109e1502bfbb63bc36ea59ada239', file: 'gwen.png', title: '스파이더버스 · 그웬', kind: 'fan', alt: '거꾸로 매달린 그웬, 하프톤 배경' },
     { id: '03e88b240944bb1b43b5b422a280c9c1', file: 'uta.png', title: '원피스 FILM RED · 우타', kind: 'fan', alt: '왕관을 쓴 우타' },
