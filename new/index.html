@@ -153,6 +153,9 @@ section{padding:clamp(64px,9vw,120px) 0;border-top:1px solid var(--line)}
 @media (max-width:760px){.docs .doc{width:calc((100% - 2*18px)/3)}}
 @media (max-width:480px){.docs .doc{width:calc((100% - 18px)/2)}}
 /* detail page columns */
+.dhead{display:flex;justify-content:space-between;align-items:baseline;gap:16px;margin:0 0 24px}
+.dhead h3{font-size:20px}
+.cols+.dhead{margin-top:clamp(40px,6vw,80px)}
 .cols{display:grid;grid-template-columns:repeat(4,1fr);gap:clamp(12px,2vw,28px);align-items:start;padding-bottom:clamp(60px,10vw,160px)}
 .col{border-radius:10px;overflow:hidden;background:#fff;box-shadow:0 14px 40px rgba(20,20,40,.12),0 1px 3px rgba(20,20,40,.06);cursor:zoom-in;transition:transform .4s cubic-bezier(.2,.8,.2,1),box-shadow .3s}
 .col:nth-child(even){margin-top:clamp(60px,10vw,160px)}
@@ -220,12 +223,6 @@ footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
 .burst.fit{background-size:contain;background-color:#fff}
 @media (prefers-reduced-motion:reduce){.bubbles .card .ph{animation:none}}
 /* motion */
-(function(){const sl=[...document.querySelectorAll('.col')];if(matchMedia('(prefers-reduced-motion: reduce)').matches)return;
- sl.forEach(x=>x.classList.add('pre'));
- const o=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){const t=e.target;t.classList.add('go');requestAnimationFrame(()=>t.classList.remove('pre'));o.unobserve(t)}}),{rootMargin:'0px 0px -12% 0px'});
- sl.forEach(x=>o.observe(x));
- document.getElementById('deck').addEventListener('click',e=>{if(e.target.closest('.col'))showWork(0)})})();
-
 .rv{opacity:0;transform:translateY(22px)}
 .rv.in{opacity:1;transform:none;transition:opacity .8s cubic-bezier(.2,.7,.2,1),transform .8s cubic-bezier(.2,.7,.2,1);transition-delay:var(--d,0s)}
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.rv{opacity:1;transform:none}*{transition:none!important;animation:none!important}}
@@ -288,12 +285,20 @@ footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
 
 <section id="detail">
   <div class="wrap">
-    <div class="shead"><h2>상세페이지 <small>Cream Angels</small></h2><button class="textlink plain" data-open-detail>원본 크게 보기</button></div>
-    <div class="cols" id="deck">
-      <div class="col" style="--k:1"><img src="../img/detail/col-1.jpg?v=3" alt="크림 엔젤스 상세페이지 1" loading="lazy"></div>
-      <div class="col" style="--k:2"><img src="../img/detail/col-2.jpg?v=3" alt="크림 엔젤스 상세페이지 2" loading="lazy"></div>
-      <div class="col" style="--k:3"><img src="../img/detail/col-3.jpg?v=3" alt="크림 엔젤스 상세페이지 3" loading="lazy"></div>
-      <div class="col" style="--k:4"><img src="../img/detail/col-4.jpg?v=3" alt="크림 엔젤스 상세페이지 4" loading="lazy"></div>
+    <div class="shead"><h2>상세페이지 <small>2</small></h2></div>
+    <div class="dhead"><h3>Cream Angels</h3><button class="textlink plain" data-open-detail="0">원본 크게 보기</button></div>
+    <div class="cols" >
+      <div class="col" data-d="0" style="--k:1"><img src="../img/detail/col-1.jpg?v=3" alt="크림 엔젤스 상세페이지 1" loading="lazy"></div>
+      <div class="col" data-d="0" style="--k:2"><img src="../img/detail/col-2.jpg?v=3" alt="크림 엔젤스 상세페이지 2" loading="lazy"></div>
+      <div class="col" data-d="0" style="--k:3"><img src="../img/detail/col-3.jpg?v=3" alt="크림 엔젤스 상세페이지 3" loading="lazy"></div>
+      <div class="col" data-d="0" style="--k:4"><img src="../img/detail/col-4.jpg?v=3" alt="크림 엔젤스 상세페이지 4" loading="lazy"></div>
+    </div>
+    <div class="dhead"><h3>Star Saber</h3><button class="textlink plain" data-open-detail="1">원본 크게 보기</button></div>
+    <div class="cols">
+      <div class="col" style="--k:1" data-d="1"><img src="../img/detail/saber-col-1.jpg?v=1" alt="스타 세이버 상세페이지 1" loading="lazy"></div>
+      <div class="col" style="--k:2" data-d="1"><img src="../img/detail/saber-col-2.jpg?v=1" alt="스타 세이버 상세페이지 2" loading="lazy"></div>
+      <div class="col" style="--k:3" data-d="1"><img src="../img/detail/saber-col-3.jpg?v=1" alt="스타 세이버 상세페이지 3" loading="lazy"></div>
+      <div class="col" style="--k:4" data-d="1"><img src="../img/detail/saber-col-4.jpg?v=1" alt="스타 세이버 상세페이지 4" loading="lazy"></div>
     </div>
   </div>
 </section>
@@ -440,6 +445,7 @@ const lett=[
  ['스포츠','img/logo-sports.jpg','타이틀 로고'],['오네 159','img/logo-one159.jpg','타이틀 로고'],
  ['Waiting Life','img/poster-waiting.jpg','포스터'],['스파이더맨 한글 로고','img/poster-spider.jpg','팬 로컬라이징'],['가면라이더 가브','img/poster-gavv.jpg','팬 로컬라이징']
 ];
+works.unshift({g:'graphic',t:'상세페이지 · 스타 세이버',d:'',tools:[],c:['#0f1a2e','#e2353b','#2f7de0','#f2c230'],p:'',cover:'img/detail/saber-cover.jpg',imgs:['img/detail/saber-1.jpg','img/detail/saber-2.jpg'],type:'상세페이지'});
 works.unshift({g:'graphic',t:'상세페이지 · 크림 엔젤스',d:'',tools:[],c:['#9cc9e8','#f2b35a','#fdf6e6','#2b3a4a'],p:'',cover:'img/detail/cream-cover.jpg',imgs:['img/detail/cream-1.jpg','img/detail/cream-2.jpg'],type:'상세페이지'});
 lett.forEach(([t,img,ty])=>works.push({g:'lettering',t,d:'',tools:[],c:[],p:'',cover:img,imgs:[img],fit:1,type:ty}));
 works.forEach(w=>{if(!w.type)w.type=Object.entries(TYPES).find(([k])=>w.t.includes(k))?.[1]||'기타'});
@@ -533,13 +539,19 @@ document.addEventListener('click',e=>{
     setTimeout(()=>{showWork(i);o.style.opacity=0;setTimeout(()=>o.remove(),400)},620);return}
   const g=e.target.closest('[data-go]');if(g){showWork(+g.dataset.go);return}
   const f=e.target.closest('[data-f]');if(f){const fm=films[+f.dataset.f];showSet(fm.t,fm.k,fm.shots.concat(fm.bts),+f.dataset.k);return}
-  if(e.target.closest('[data-open-detail]')){showWork(0);return}
+  {const od=e.target.closest('[data-open-detail]');if(od){showWork(+od.dataset.openDetail);return}}
   const ce=e.target.closest('[data-c]');if(ce){const k=+ce.dataset.c;showSet('자격 확인서','생년월일·주소·등록번호 등 개인정보 가림',certs.map(c=>`img/cert/${c[2]}.jpg`),k);return}
 });
 document.getElementById('dtClose').onclick=closePanel;
 document.addEventListener('keydown',e=>{if(e.key==='Escape'&&dt.classList.contains('open'))closePanel()});
 
 /* motion */
+(function(){const sl=[...document.querySelectorAll('.col')];if(matchMedia('(prefers-reduced-motion: reduce)').matches)return;
+ sl.forEach(x=>x.classList.add('pre'));
+ const o=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){const t=e.target;t.classList.add('go');requestAnimationFrame(()=>t.classList.remove('pre'));o.unobserve(t)}}),{rootMargin:'0px 0px -12% 0px'});
+ sl.forEach(x=>o.observe(x));
+ document.querySelectorAll('.cols').forEach(d=>d.addEventListener('click',e=>{const c=e.target.closest('.col');if(c)showWork(+c.dataset.d)}))})();
+
 const hdr=document.getElementById('top');
 addEventListener('scroll',()=>hdr.classList.toggle('scrolled',scrollY>8),{passive:true});
 const links=[...document.querySelectorAll('nav a')],secs=links.map(a=>document.querySelector(a.getAttribute('href')));
